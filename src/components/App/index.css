@@ -1,0 +1,23 @@
+.app {
+  max-width: 900px;
+  margin: auto;
+}
+
+.app__logo {
+  display: block;
+  margin: 50px auto;
+}
+
+.app__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.app__sidebar {
+  flex: 0 0 300px;
+}
+
+.app__tickets {
+  flex: 1;
+}

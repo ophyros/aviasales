@@ -1,0 +1,14 @@
+.ticket {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.ticket__left {
+  flex: 0 0 200px;
+}
+
+.ticket__right {
+  flex: 1;
+}
