@@ -2,11 +2,9 @@ import React, { Component } from 'react';
 
 import Ticket from '../Ticket';
 
-import data from '../../data/tickets.json';
-
 class TicketsList extends Component {
   render() {
-    const { tickets } = data;
+    const { tickets } = this.props;
     const list = tickets
                     .sort( (prev, next) => prev.price > next.price )
                     .map( (ticket, i) => (

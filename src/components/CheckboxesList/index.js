@@ -10,6 +10,9 @@ class CheckboxesList extends Component {
           <Checkbox label='Все' onlyBtn={false} />
         </li>
         <li className='checkboxes-list__item'>
+          <Checkbox label='Без пересадок' onlyBtn={true} />
+        </li>
+        <li className='checkboxes-list__item'>
           <Checkbox label='1 пересадка' onlyBtn={true} />
         </li>
         <li className='checkboxes-list__item'>
