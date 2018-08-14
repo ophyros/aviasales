@@ -7,9 +7,20 @@ import 'moment/locale/ru';
 
 import './index.css';
 
+const currencySigns = {
+  'RUB': '₽',
+  'USD': '$',
+  'EUR': '€'
+}
+
 class Ticket extends Component {
   render() {
     const { ticket } = this.props;
+
+    const { baseCurrency, currentCurrency, rates} = this.props.currencies;
+
+    const priceRate = baseCurrency === currentCurrency ? 1 : rates[currentCurrency];
+    const priceString = Math.floor(ticket.price * priceRate) + currencySigns[currentCurrency];
 
     return (
       <div className='ticket'>
@@ -19,7 +30,7 @@ class Ticket extends Component {
           </div>
           <button className='ticket__buy'>
             Купить<br />
-            за {ticket.price} ₽
+            за {priceString}
           </button>
         </div>
         <div className='ticket__right'>

@@ -8,7 +8,7 @@ import './index.css';
 
 class App extends Component {
   render() {
-    const { tickets, stopsFilter } = this.props;
+    const { tickets, stopsFilter, currencies } = this.props;
     return (
       <div className="app">
         <header className="app__header">
@@ -22,6 +22,7 @@ class App extends Component {
             <TicketsList
               tickets={tickets}
               stopsFilter={stopsFilter.selectedOptions}
+              currencies={currencies}
             />
           </div>
         </section>
@@ -31,10 +32,9 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  // status: state.status,
   tickets: state.tickets.sort( (prev, next) => prev.price > next.price ),
   stopsFilter: state.stopsFilter,
-  // currency: state.currency
+  currencies: state.currencies
 });
 
 export default connect(mapStateToProps)(App);

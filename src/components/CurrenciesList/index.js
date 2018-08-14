@@ -4,17 +4,24 @@ import Currency from '../Currency';
 
 class CurrenciesList extends Component {
   render() {
+    const { setCurrentCurrency } = this.props;
+    const { currentCurrency, availableCurrencies } = this.props.currencies;
+
+    const items = availableCurrencies.map( currency => {
+      return (
+        <li className='currencies-list__item' key={currency}>
+          <Currency
+            label={currency}
+            value={currency}
+            checked={currency === currentCurrency}
+            onChange={setCurrentCurrency}
+          />
+        </li>
+      )
+    })
     return (
       <ul className='currencies-list'>
-        <li className='checkboxes-list__item'>
-          <Currency label='RUB' />
-        </li>
-        <li className='checkboxes-list__item'>
-          <Currency label='USD' />
-        </li>
-        <li className='checkboxes-list__item'>
-          <Currency label='EUR' />
-        </li>
+        {items}
       </ul>
     );
   }

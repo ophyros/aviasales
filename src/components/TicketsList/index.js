@@ -13,12 +13,12 @@ class TicketsList extends Component {
   }
 
   render() {
-    const { tickets } = this.props;
+    const { tickets, currencies } = this.props;
     const list = tickets
                     .filter( this.filterTickets )
                     .map( (ticket, i) => (
                         <li className='tickets-list__item' key={i}>
-                          <Ticket ticket={ticket} />
+                          <Ticket ticket={ticket} currencies={currencies} />
                         </li>
                       )
                     );

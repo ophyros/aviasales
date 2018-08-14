@@ -12,20 +12,27 @@ import {
   buildAvailableOptions
 } from '../../actions/stopsFilterActions';
 
+import {
+  fetchCurrenciesFromAPI,
+  setCurrentCurrency
+} from '../../actions/currenciesActions';
+
 class Filter extends Component {
 
   componentDidMount = () => {
     this.props.buildStopsFilter();
+    this.props.fetchCurrenciesFromAPI();
   }
 
   render() {
     const {
       stopsFilter,
-      currency,
       addStopsToFilter,
       removeStopsFromFilter,
       setOneStopToFilter,
-      resetStopsFilter
+      resetStopsFilter,
+      currencies,
+      setCurrentCurrency
     } = this.props;
 
     return (
@@ -36,7 +43,8 @@ class Filter extends Component {
           </header>
           <div className='filter__controls'>
             <CurrenciesList
-              currency={currency}
+              currencies={currencies}
+              setCurrentCurrency={setCurrentCurrency}
             />
           </div>
         </section>
@@ -62,7 +70,7 @@ class Filter extends Component {
 
 const mapStateToProps = state => ({
   stopsFilter: state.stopsFilter,
-  currency: state.currency
+  currencies: state.currencies
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -80,6 +88,12 @@ const mapDispatchToProps = dispatch => ({
   },
   buildStopsFilter: () => {
     dispatch(buildAvailableOptions());
+  },
+  fetchCurrenciesFromAPI: () => {
+    dispatch(fetchCurrenciesFromAPI());
+  },
+  setCurrentCurrency: (currency) => {
+    dispatch(setCurrentCurrency(currency));
   }
 });
 
