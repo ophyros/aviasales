@@ -1,3 +1,0 @@
-// fetch,
-// filter,
-// changecurrency

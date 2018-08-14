@@ -8,7 +8,7 @@ import './index.css';
 
 class App extends Component {
   render() {
-    console.log(this.props);
+    const { tickets, stopsFilter } = this.props;
     return (
       <div className="app">
         <header className="app__header">
@@ -19,7 +19,10 @@ class App extends Component {
             <Filter />
           </aside>
           <div className='app__tickets'>
-            <TicketsList tickets={this.props.tickets} />
+            <TicketsList
+              tickets={tickets}
+              stopsFilter={stopsFilter.selectedOptions}
+            />
           </div>
         </section>
       </div>
@@ -27,14 +30,12 @@ class App extends Component {
   }
 }
 
-function mapStateToProps (state) {
-  return {
-    status: state.status,
-    tickets: state.tickets,
-    filters: state.filters,
-    currency: state.currency
-  }
-}
+const mapStateToProps = (state) => ({
+  // status: state.status,
+  tickets: state.tickets.sort( (prev, next) => prev.price > next.price ),
+  stopsFilter: state.stopsFilter,
+  // currency: state.currency
+});
 
 export default connect(mapStateToProps)(App);
 

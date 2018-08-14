@@ -1,16 +1,9 @@
-import data from '../data/tickets.json';
+import { combineReducers } from 'redux';
 
-const initialState = {
-  status: {
-    isLoading: false,
-    isError: false,
-    error: ''
-  },
-  tickets: data.tickets,
-  filters: [],
-  currency: 'rub'
-}
+import stopsFilterReducers from './stopsFilterReducers';
+import ticketsReducers from './ticketsReducers';
 
-export default function rootReducer(state = initialState) {
-  return state;
-}
+export default combineReducers({
+  tickets: ticketsReducers,
+  stopsFilter: stopsFilterReducers
+});
