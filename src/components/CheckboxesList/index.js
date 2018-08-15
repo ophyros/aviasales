@@ -4,6 +4,8 @@ import Checkbox from '../Checkbox';
 
 import { plural } from '../../utils';
 
+import './index.css';
+
 class CheckboxesList extends Component {
   render() {
     const {

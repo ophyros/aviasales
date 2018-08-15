@@ -5,14 +5,17 @@ import Filter from '../Filter';
 import TicketsList from '../TicketsList';
 
 import './index.css';
+import logo from './logo.svg';
 
 class App extends Component {
   render() {
     const { tickets, stopsFilter, currencies } = this.props;
     return (
-      <div className="app">
-        <header className="app__header">
-          <a className="app__logo" href="https://aviasales.ru">Aviasales.ru</a>
+      <div className='app'>
+        <header className='app__header'>
+          <a className='app__logo' href="https://aviasales.ru">
+            <img src={logo} alt='aviasales' />
+          </a>
         </header>
         <section className='app__container'>
           <aside className='app__sidebar'>

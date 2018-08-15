@@ -1,0 +1,36 @@
+.currency {
+
+}
+
+.currency__input {
+  position: absolute;
+  left: -9999px;
+}
+
+.currency__label {
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background: #fff;
+  border: 1px solid #d2d5d6;
+  font-weight: 600;
+  font-size: 12px;
+  color: #000000;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: background, border .2s;
+  cursor: pointer;
+}
+
+.currency__label:hover {
+  background: #f2fcff;
+  border-color: #64b5f5;
+  position: relative;
+  z-index: 2;
+}
+
+.currency__input:checked + .currency__label {
+  background: #2196f3;
+  border-color: #2196f3;
+}

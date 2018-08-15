@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import Currency from '../Currency';
 
+import './index.css';
+
 class CurrenciesList extends Component {
   render() {
     const { setCurrentCurrency } = this.props;

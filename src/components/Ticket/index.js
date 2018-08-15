@@ -26,7 +26,7 @@ class Ticket extends Component {
       <div className='ticket'>
         <div className='ticket__left'>
           <div className='ticket__carrier'>
-            {ticket.carrier}
+            <img src='/img/carrier.png' alt={ticket.carrier} />
           </div>
           <button className='ticket__buy'>
             Купить<br />
@@ -46,14 +46,14 @@ class Ticket extends Component {
             </div>
           </div>
           <div className='ticket__stops'>
-            {ticket.stops === 0 ? 'Без пересадок' : ticket.stops + ' ' + plural(ticket.stops, ['пересадка', 'пересадки', 'пересадок'])}
+            {ticket.stops === 0 ? '' : ticket.stops + ' ' + plural(ticket.stops, ['пересадка', 'пересадки', 'пересадок'])}
           </div>
           <div className='ticket__destination'>
             <div className='ticket__time'>
               {ticket.arrival_time}
             </div>
             <div className='ticket__name'>
-              {ticket.destination + ', ' + ticket.destination_name}
+              {ticket.destination_name + ', ' + ticket.destination}
             </div>
             <div className='ticket__date'>
               {moment(ticket.arrival_date, 'DD.MM.YY').format('D MMM YYYY, dd')}

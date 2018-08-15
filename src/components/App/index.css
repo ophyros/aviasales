@@ -1,11 +1,19 @@
 .app {
-  max-width: 900px;
-  margin: auto;
+  max-width: 820px;
+  margin: 0 auto 50px;
 }
 
 .app__logo {
   display: block;
+  width: 60px;
+  height: 60px;
   margin: 50px auto;
+}
+
+.app__logo img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .app__container {
@@ -15,7 +23,8 @@
 }
 
 .app__sidebar {
-  flex: 0 0 300px;
+  flex: 0 0 232px;
+  margin-right: 20px;
 }
 
 .app__tickets {

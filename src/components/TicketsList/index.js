@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import Ticket from '../Ticket';
 
+import './index.css';
+
 class TicketsList extends Component {
 
   filterTickets = (ticket) => {

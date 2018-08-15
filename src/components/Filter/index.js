@@ -17,6 +17,8 @@ import {
   setCurrentCurrency
 } from '../../actions/currenciesActions';
 
+import './index.css';
+
 class Filter extends Component {
 
   componentDidMount = () => {

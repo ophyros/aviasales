@@ -1,0 +1,9 @@
+.tickets-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tickets-list__item {
+  margin-bottom: 20px;
+}
