@@ -5,5 +5,30 @@
 }
 
 .tickets-list__item {
+  width: 100%;
   margin-bottom: 20px;
+}
+
+.tickets-list__loader {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tickets-list__error {
+  width: 100%;
+  background: #FFFFFF;
+  box-shadow: 0 1px 4px 0 rgba(91,137,164,0.25);
+  border-radius: 5px;
+  padding: 25px;
+  color: red;
+}
+
+.tickets-list__notfound {
+  width: 100%;
+  background: #FFFFFF;
+  box-shadow: 0 1px 4px 0 rgba(91,137,164,0.25);
+  border-radius: 5px;
+  padding: 25px;
 }

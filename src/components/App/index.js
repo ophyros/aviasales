@@ -4,10 +4,19 @@ import { connect } from 'react-redux';
 import Filter from '../Filter';
 import TicketsList from '../TicketsList';
 
+import {
+  fetchTicketsFromAPI
+} from '../../actions/ticketsActions';
+
 import './index.css';
 import logo from './logo.svg';
 
 class App extends Component {
+
+  componentDidMount = () => {
+    this.props.fetchTicketsFromAPI();
+  }
+
   render() {
     const { tickets, stopsFilter, currencies } = this.props;
     return (
@@ -34,11 +43,17 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  tickets: state.tickets.sort( (prev, next) => prev.price > next.price ),
+const mapStateToProps = state => ({
+  tickets: state.tickets,
   stopsFilter: state.stopsFilter,
   currencies: state.currencies
 });
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = dispatch => ({
+  fetchTicketsFromAPI: () => {
+    dispatch(fetchTicketsFromAPI());
+  }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
 

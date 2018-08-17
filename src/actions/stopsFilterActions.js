@@ -25,7 +25,7 @@ export const resetStopsFilter = num => ({
 
 export const buildAvailableOptions = () => {
   return (dispatch, getState) => {
-    const { tickets } = getState();
+    const { tickets } = getState().tickets;
     let tmp = {};
     tickets.forEach( ticket => {
       tmp[ticket.stops] = true;
