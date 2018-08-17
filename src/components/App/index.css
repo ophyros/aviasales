@@ -30,3 +30,25 @@
 .app__tickets {
   flex: 1;
 }
+
+@media (max-width: 830px) {
+  .app {
+    padding: 0 15px;
+  }
+
+  .app__logo {
+    margin: 30px auto;
+  }
+
+  .app__container {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+
+  .app__sidebar {
+    flex: 0 0 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+}
