@@ -1,11 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import './index.css';
 
-class Checkbox extends Component {
+const Checkbox = ({ value,
+                    label,
+                    checked,
+                    onlyBtn,
+                    onCheck,
+                    onUnCheck,
+                    onOnlyBtnClick }) => {
 
-  onChange = e => {
-    const { onCheck, onUnCheck, value } = this.props;
+  const handleChange = e => {
     if (e.target.checked) {
       onCheck(value);
     } else {
@@ -13,36 +18,31 @@ class Checkbox extends Component {
     }
   }
 
-  onOnlyBtnClick = () => {
-    const { onOnlyBtnClick, value } = this.props;
+  const handleClick = () => {
     onOnlyBtnClick(value);
   }
 
-  render() {
-    const { value, label, checked, onlyBtn } = this.props;
-    const id = 'id' + value;
-    return (
-      <div className='checkbox'>
-        <input
-          type='checkbox'
-          className='checkbox__input'
-          onChange={this.onChange}
-          checked={checked}
-          id={id}
-        />
-        <label className='checkbox__label' htmlFor={id}>
-          {label}
-        </label>
-        { onlyBtn ?
-          <button
-            className='checkbox__only'
-            onClick={this.onOnlyBtnClick}
-          >
-            только
-          </button> : null }
-      </div>
-    );
-  }
+  return (
+    <div className='checkbox'>
+      <input
+        type='checkbox'
+        className='checkbox__input'
+        onChange={handleChange}
+        checked={checked}
+        id={'id' + value}
+      />
+      <label className='checkbox__label' htmlFor={'id' + value}>
+        {label}
+      </label>
+      { onlyBtn ?
+        <button
+          className='checkbox__only'
+          onClick={handleClick}
+        >
+          только
+        </button> : null }
+    </div>
+  );
 }
 
 export default Checkbox;

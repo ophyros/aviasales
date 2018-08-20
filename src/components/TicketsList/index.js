@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import Ticket from '../Ticket';
 import Loader from '../Loader';
 
+import {
+  fetchTicketsFromAPI
+} from '../../actions/ticketsActions';
+
 import './index.css';
 
 class TicketsList extends Component {
+
+  componentDidMount = () => {
+    this.props.fetchTicketsFromAPI();
+  }
 
   filterTickets = (ticket) => {
     const { stopsFilter } = this.props;
@@ -30,15 +39,15 @@ class TicketsList extends Component {
               );
     }
     return (
-        <li className='tickets-list__item'>
-          <div className='tickets-list__notfound'>
-            <p>Ничего не найдено</p>
-          </div>
-        </li>
-      );
+      <li className='tickets-list__item'>
+        <div className='tickets-list__notfound'>
+          <p>Ничего не найдено</p>
+        </div>
+      </li>
+    );
   }
 
-  render() {
+  render = () => {
     const { isFetching, error } = this.props.tickets;
 
     return (
@@ -63,4 +72,16 @@ class TicketsList extends Component {
   }
 }
 
-export default TicketsList;
+const mapStateToProps = state => ({
+  tickets: state.tickets,
+  stopsFilter: state.stopsFilter.selectedOptions,
+  currencies: state.currencies
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetchTicketsFromAPI: () => {
+    dispatch(fetchTicketsFromAPI());
+  }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(TicketsList);
