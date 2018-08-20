@@ -13,11 +13,12 @@ const currencySigns = {
   'EUR': '€'
 }
 
-const Ticket = ({ baseCurrency, currentCurrency, rates, ticket }) => {
+const Ticket = ({ currencies, ticket }) => {
 
   const formatDate = (date) => moment(date, 'DD.MM.YY').format('D MMM YYYY, dd');
 
   const convertCurrency = (price) => {
+    const { baseCurrency, currentCurrency, rates } = currencies;
     const priceRate = baseCurrency === currentCurrency ? 1 : rates[currentCurrency];
     const result = Math.floor(price * priceRate);
     return currentCurrency === 'RUB' ? result + currencySigns[currentCurrency] : currencySigns[currentCurrency] + result;
