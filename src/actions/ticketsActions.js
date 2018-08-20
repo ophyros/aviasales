@@ -4,7 +4,7 @@ export const FETCH_TICKETS_DATA = 'FETCH_TICKETS_DATA';
 export const FETCH_TICKETS_DATA_ERROR = 'FETCH_TICKETS_DATA_ERROR';
 export const FETCH_TICKETS_DATA_SUCCESS = 'FETCH_TICKETS_DATA_SUCCESS';
 
-const ticketsDataURL = 'http://localhost:3000/data/tickets.json';
+const ticketsDataURL = 'https://api.myjson.com/bins/17nxoo';
 
 export const fetchTicketsData = () => ({
     type: FETCH_TICKETS_DATA
@@ -24,7 +24,7 @@ export const fetchTicketsFromAPI = () => {
   return (dispatch, getState) => {
     dispatch(fetchTicketsData());
 
-    return setTimeout(() => fetch(ticketsDataURL)
+    return fetch(ticketsDataURL)
       .then(
         response => response.json()
       )
@@ -36,6 +36,6 @@ export const fetchTicketsFromAPI = () => {
       )
       .catch(
         error => dispatch(fetchTicketsDataError(error))
-      ), 1000);
+      );
   }
 }
